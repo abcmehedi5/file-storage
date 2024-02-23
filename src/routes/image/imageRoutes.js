@@ -3,8 +3,9 @@ const {
   uploadImageController,
   getAllImagesController,
 } = require("../../controllers/image/imageController");
+const { upload } = require("../../utils/fileUpload");
 const imageRouter = Router();
 // upload image route
-imageRouter.post("/product", uploadImageController);
+imageRouter.post("/upload", upload.single("file"), uploadImageController);
 imageRouter.get("/images", getAllImagesController);
 module.exports = imageRouter;

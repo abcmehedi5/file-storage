@@ -2,9 +2,9 @@ const imageService = require("../../services/image/imageService");
 
 // upload image
 const uploadImageController = async (req, res) => {
+  const file = req?.file;
   try {
-    const file = req.file;
-    const result = await imageService.uploadImageService(file);
+    const result = await imageService?.uploadImageService(file);
     res.json(result);
   } catch (error) {
     console.error(error);
@@ -15,8 +15,8 @@ const uploadImageController = async (req, res) => {
 // get all images
 const getAllImagesController = async (req, res) => {
   try {
-    const result =  await imageService.getAllImageService();
-    console.log(result)
+    const result = await imageService.getAllImageService();
+    console.log(result);
     res.send(result);
   } catch (error) {
     console.error(error);
@@ -26,5 +26,5 @@ const getAllImagesController = async (req, res) => {
 
 module.exports = {
   uploadImageController,
-  getAllImagesController
+  getAllImagesController,
 };
